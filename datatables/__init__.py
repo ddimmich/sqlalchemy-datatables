@@ -1,4 +1,10 @@
 # -*- coding: utf-8 -*-
-__VERSION__ = '0.1.6'
+import sys
 
-from datatables import *
+if sys.version_info > (3, 0):
+    from datatables.datatables import ColumnDT, DataTables
+else:
+    from datatables import ColumnDT, DataTables
+
+
+__VERSION__ = '0.1.7'

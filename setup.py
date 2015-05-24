@@ -1,18 +1,18 @@
 #!/usr/bin/env python
-from setuptools import setup, find_packages
-
 import sys
 
-if sys.version_info >= (3,0):
+from setuptools import setup, find_packages
+
+if sys.version_info >= (3, 0):
     def my_open(path, mode):
         return open(path, mode, newline='')
 else:
     def my_open(path, mode):
-        return open(path, mode+'b')
+        return open(path, mode + 'b')
 
 
-__VERSION__ = [line for line in my_open('datatables/__init__.py', 'r') \
-    if line.startswith('__VERSION__')][0].split(\
+__VERSION__ = [line for line in my_open('datatables/__init__.py', 'r')
+               if line.startswith('__VERSION__')][0].split(
     '=')[1].strip().lstrip('\'').rstrip('\'')
 
 
@@ -31,6 +31,7 @@ setup(
     zip_safe=False,
     install_requires=['sqlalchemy'],
     py_modules=['datatables'],
+    test_suite="datatables",
     classifiers=[
         'Development Status :: 5 - Production/Stable',
         'Environment :: Web Environment',
@@ -47,6 +48,7 @@ setup(
         'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 3.2',
         'Programming Language :: Python :: 3.3',
+        'Programming Language :: Python :: 3.4',
         'Topic :: Internet :: WWW/HTTP',
         'Topic :: Software Development :: Libraries',
         'Topic :: Software Development :: Libraries :: Python Modules',
